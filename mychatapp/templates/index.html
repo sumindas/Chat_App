@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Room</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-200">
+    <div class="flex items-center justify-center min-h-screen">
+        <div class="bg-blue-600 p-10 rounded-lg w-1/2">
+            <h1 class="text-2xl font-bold mb-4">Enter Room</h1>
+            <form action="" method="POST" class="w-4/5">
+                {% csrf_token %}
+                <label for="username" class="block mb-2">Username</label>
+                <input type="text" placeholder="Username" name="username" required class="w-full p-2 border border-blue-500 rounded mb-4">
+                <label for="room" class="block mb-2">Room name</label>
+                <input type="text" placeholder="room name" name="room" required class="w-full p-2 border border-blue-500 rounded mb-4">
+                <div class="text-center">
+                    <button type="submit" class="bg-black text-white px-4 py-2 rounded hover:bg-gray-700 transition-colors duration-200">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
