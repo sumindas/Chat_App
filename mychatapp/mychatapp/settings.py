@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    # 'daphne',
+    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'chat',
-    # 'channels',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -102,6 +102,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+ASGI_APPLICATION = 'mychatapp.asgi.application'
+
+CHANNEL_LAYERS = {
+    "default":{"BACKEND":"channels.layers.InMemoryChannelLayer"}
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/

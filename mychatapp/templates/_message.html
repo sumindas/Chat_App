@@ -22,19 +22,24 @@
                     <div class="overflow-y-auto h-96" id="tasks">
                         <div class="space-y-4" id="chatContainer">
                             <!-- received messages and displayed here -->
+                            {% for i in messages %}
+                            {% if i.sender != user %}
                             <div class="receive bg-gray-200 p-2 rounded-lg">
                                 <p class="text-black">{{i.message}}<strong>-{{i.sender}}</strong></p>
                             </div>
+                            {% else %}
                             <div class="send bg-gray-200 p-2 rounded-lg">
                                 <p class="text-black">{{i.message}}</p>
                             </div>
+                            {% endif %}
+                            {% endfor %}
                             <!-- end receive messages -->
                         </div>
                         <div class="mt-4">
                             <form action="" id="message-form" method="POST" class="flex justify-between items-center">
                                 {% csrf_token %}
                                 <textarea id="msg" cols="30" name="message" rows="10" placeholder="Enter your message" required class="w-4/5 p-2 border border-gray-300 rounded"></textarea>
-                                <button class="submit bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors duration-200" type="submit">Send</button>
+                                <button class="submit bg-black text-white px-4 py-2 rounded hover:bg-gray-700 transition-colors duration-200" type="submit">Send</button>
                             </form>    
                         </div>
                     </div>

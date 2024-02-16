@@ -21,4 +21,13 @@ def CreateRoom(request):
     return render(request,'index.html')
 
 def MessageView(request,room_name,username):
-    return render(request,'_message.html')
+    
+    get_room = Room.objects.get(room_name=room_name)
+    get_messages = Message.objects.filter(room=get_room)
+    
+    context ={
+        "messages": get_messages,
+        "user": username,
+        "room_name": room_name
+    }
+    return render(request,'_message.html',context)
