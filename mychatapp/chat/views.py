@@ -30,4 +30,4 @@ def MessageView(request,room_name,username):
         "user": username,
         "room_name": room_name
     }
-    return render(request,'_message.html',context)
+    return render(request,'message.html',context)
